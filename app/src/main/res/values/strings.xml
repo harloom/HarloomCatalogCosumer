@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HarloomCatalogCosumer</string>
+    <string name="tab_text_1">Movie</string>
+    <string name="tab_text_2">TV</string>
+    <string name="poster">poster</string>
+    <string name="title">title</string>
+</resources>
