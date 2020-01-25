@@ -12,8 +12,8 @@ class ProviderRepository(private val mContext: Context) {
         private const val AUTHORITY = "com.harloomDeveloper.moviecatalogharloom"
         private const val BASE_PATH = "favorite"
         private const val SCHEME = "content"
-        const val MOVIE = 1
-        const val TV =2
+        private val MOVIE_PATH = "movie"
+        private val TV_PATH = "tv"
 
 
         const val ID ="id"
@@ -27,8 +27,8 @@ class ProviderRepository(private val mContext: Context) {
     }
     fun getMovieFromProvider(): MutableList<EMovie> {
        val movie : MutableList<EMovie> = mutableListOf()
-        val uriMovie = Uri.parse("$CONTENT_URI/$MOVIE")
-        println("debug uriMOvie: $uriMovie" )
+        val uriMovie = Uri.parse("$CONTENT_URI/$MOVIE_PATH")
+
         val cursor : Cursor? = mContext.contentResolver.query(uriMovie,null,null,null,null)
         cursor?.let {cr->
                 while (cr.moveToNext()){
@@ -46,8 +46,8 @@ class ProviderRepository(private val mContext: Context) {
 
     fun getTvFromProvider() : MutableList<ETv>{
         val tv : MutableList<ETv> = mutableListOf()
-        val uriTv = Uri.parse("$CONTENT_URI/$TV")
-        println("debug  uriTV: $uriTv")
+        val uriTv = Uri.parse("$CONTENT_URI/$TV_PATH")
+
         val cursor : Cursor? = mContext.contentResolver.query(uriTv,null,null,null,null)
         cursor?.let {cr->
             while (cr.moveToNext()){

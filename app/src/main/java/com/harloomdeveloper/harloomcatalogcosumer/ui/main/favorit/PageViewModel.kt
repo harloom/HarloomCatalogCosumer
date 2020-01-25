@@ -19,12 +19,16 @@ class PageViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = ProviderRepository(mContext)
 
 
-     fun load(){
+     fun loadMovie(){
        val mLIst =  repository.getMovieFromProvider()
          listMovie.value = mLIst
 
-       val tList = repository.getTvFromProvider()
-         listTv.value = tList
+
+    }
+
+    fun loadTv(){
+        val tList = repository.getTvFromProvider()
+        listTv.value = tList
     }
 
     fun getMovies() =listMovie

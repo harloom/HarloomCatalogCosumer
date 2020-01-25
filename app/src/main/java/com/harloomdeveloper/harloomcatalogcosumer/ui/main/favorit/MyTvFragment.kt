@@ -40,7 +40,7 @@ class MyTvFragment : Fragment(R.layout.fragment_favorit), RcvFavoritTvAdapter.In
     }
 
     private fun initVm() {
-        pageViewModel?.load()
+        pageViewModel?.loadTv()
 
     }
     private fun initRcv() {

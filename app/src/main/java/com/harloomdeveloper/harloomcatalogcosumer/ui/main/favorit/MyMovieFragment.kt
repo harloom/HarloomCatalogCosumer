@@ -41,6 +41,7 @@ class MyMovieFragment : Fragment(R.layout.fragment_favorit), RcvFavoritMovieAdap
     private fun initVm() {
         activity?.let {a->
             pageViewModel = ViewModelProvider(a).get(PageViewModel::class.java)
+
         }
 
 
@@ -51,6 +52,7 @@ class MyMovieFragment : Fragment(R.layout.fragment_favorit), RcvFavoritMovieAdap
         mRecyclerView.apply {
             adapter = movieAdapter
         }
+        pageViewModel?.loadMovie()
         pageViewModel?.getMovies()?.observe(viewLifecycleOwner, Observer {movie->
             movie?.let {
                 showLoading(false)
